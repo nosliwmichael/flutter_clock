@@ -10,16 +10,17 @@ class ClockText extends StatelessWidget {
   final fontStyle = TextStyle(
     fontFamily: 'Monoton',
     fontSize: 10,
+    fontWeight: FontWeight.bold,
     color: Colors.white,
   );
-  final hour, minute, second, weather, temp, location;
-  ClockText(this.model, this.dateTime)
-      : hour = DateFormat(model.is24HourFormat ? 'HH' : 'hh').format(dateTime),
-        minute = DateFormat('mm').format(dateTime),
-        second = DateFormat('ss').format(dateTime),
-        weather = model.weatherString,
-        temp = model.temperatureString,
-        location = model.location;
+  final _hour, _minute, _second, _weather, _temp, _location;
+  ClockText(this.model, this.dateTime):
+      _hour = DateFormat(model.is24HourFormat ? 'HH' : 'hh').format(dateTime),
+      _minute = DateFormat('mm').format(dateTime),
+      _second = DateFormat('ss').format(dateTime),
+      _weather = model.weatherString,
+      _temp = model.temperatureString,
+      _location = model.location;
 
   @override
   Widget build(BuildContext context) {
@@ -30,29 +31,29 @@ class ClockText extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            '$hour:$minute:$second',
+            '$_hour:$_minute:$_second',
             style: fontStyle,
             semanticsLabel:
-                'The time is $hour hours, $minute minutes, and $second seconds.',
+                'The time is $_hour hours, $_minute minutes, and $_second seconds.',
           ),
           Text(
-            temp,
+            _temp,
             style: fontStyle,
-            semanticsLabel: 'The temperature is $temp',
+            semanticsLabel: 'The temperature is $_temp',
           ),
           Text(
-            weather,
+            _weather,
             style: fontStyle,
-            semanticsLabel: 'The weather is $weather',
+            semanticsLabel: 'The weather is $_weather',
           ),
           new Container(
             height: 80.0,
             width: 480.0,
             // TODO: Test Semantics on physical device
             child: Semantics(
-              label: 'You are located in $location.',
+              label: 'You are located in $_location.',
               child: Marquee(
-                text: location,
+                text: _location,
                 style: fontStyle,
               ),
             ),

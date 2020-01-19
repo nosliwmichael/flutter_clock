@@ -7,7 +7,7 @@ Future<SpriteSheet> loadSpriteSheet() async {
 
   String json = await rootBundle.loadString('assets/spritesheet.json');
   SpriteSheet _spriteSheet = new SpriteSheet(_imageMap['assets/spritesheet.png'], json);
-  
+
   assert(_spriteSheet.image != null);
   return _spriteSheet;
 }
