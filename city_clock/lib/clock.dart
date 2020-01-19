@@ -62,7 +62,17 @@ class _ClockState extends State<Clock> {
       child: Stack(
         children: <Widget>[
           Image(
-            image: AssetImage('assets/images/city_scene.jpg'), 
+            image: AssetImage('assets/images/sky.jpg'),
+            fit: BoxFit.cover,
+          ),
+//          FutureBuilder(
+//            future: loadAsset(),
+//            builder: (BuildContext context, AsyncSnapshot snapshot) {
+//              return Text(snapshot.data);
+//            },
+//          ),
+          Image(
+            image: AssetImage('assets/images/buildings.png'),
             fit: BoxFit.cover,
           ),
           ClockText(widget.model, _dateTime),
@@ -71,4 +81,9 @@ class _ClockState extends State<Clock> {
     );
   }
   
+}
+
+Future<String> loadAsset() async {
+  String s = 'test';
+  return s;
 }

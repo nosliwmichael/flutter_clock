@@ -57,6 +57,8 @@ flutter:
     - assets/sprites/spritesheet.json
     # JPG
     - assets/images/city_scene.jpg
+    - assets/images/sky.jpg
+    - assets/images/buildings.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
