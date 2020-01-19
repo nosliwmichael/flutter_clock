@@ -1,93 +1,64 @@
-import 'dart:async';
-
-import 'package:city_clock/components.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_clock_helper/model.dart';
 import 'package:intl/intl.dart';
-import 'package:spritewidget/spritewidget.dart';
+import 'package:marquee/marquee.dart';
 
-class ClockText extends StatefulWidget {
-  ClockText(this.model, this._spritesheet);
-
+class ClockText extends StatelessWidget {
   final ClockModel model;
-  final SpriteSheet _spritesheet;
-  final List<String> textures = [
-    'RunRight01.png',
-    'RunRight02.png',
-    'RunRight03.png',
-    'RunRight04.png',
-  ];
-
-  @override
-  _ClockTextState createState() => _ClockTextState();
-}
-
-class _ClockTextState extends State<ClockText> {
-  DateTime _dateTime = DateTime.now();
-  Timer _timer;
-  int texture = 0;
-  
-  @override
-  void initState() {
-    super.initState();
-    widget.model.addListener(_updateModel);
-    _updateTime();
-    _updateModel();
-  }
-
-  @override
-  void dispose() {
-    _timer?.cancel();
-    widget.model.removeListener(_updateModel);
-    widget.model.dispose();
-    super.dispose();
-  }
-
-  void _updateModel() {
-    setState(() {});
-  }
-
-  void _updateTime() {
-    setState(() {
-      this._dateTime = DateTime.now();
-      this._timer = Timer(
-        // Duration(minutes: 1) -
-        Duration(seconds: 1) - 
-        Duration(milliseconds: _dateTime.millisecond),
-        _updateTime,
-      );
-      
-      if (texture < 3) {
-        texture++;
-      } else {
-        texture = 0;
-      }
-    });
-  }
+  final DateTime dateTime;
+  final fontStyle = TextStyle(
+    fontFamily: 'Monoton',
+    fontSize: 10,
+    color: Colors.white,
+  );
+  final hour, minute, second, weather, temp, location;
+  ClockText(this.model, this.dateTime)
+      : hour = DateFormat(model.is24HourFormat ? 'HH' : 'hh').format(dateTime),
+        minute = DateFormat('mm').format(dateTime),
+        second = DateFormat('ss').format(dateTime),
+        weather = model.weatherString,
+        temp = model.temperatureString,
+        location = model.location;
 
   @override
   Widget build(BuildContext context) {
-    final hour =
-        DateFormat(widget.model.is24HourFormat ? 'HH' : 'hh').format(_dateTime);
-    final minute = DateFormat('mm').format(_dateTime);
-    final second = DateFormat('ss').format(_dateTime);
-
-    return Container(
-      child: Stack(
+    return Positioned(
+      left: 10,
+      top: 10,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          new Text('$hour:$minute:$second'),
-          new Positioned(
-            left: 0,
-            top: 0,
-            child: new TextureImage(
-              texture: widget._spritesheet[widget.textures[texture]],
-              width: 100.0,
-              height: 100.0
+          Text(
+            '$hour:$minute:$second',
+            style: fontStyle,
+            semanticsLabel:
+                'The time is $hour hours, $minute minutes, and $second seconds.',
+          ),
+          Text(
+            temp,
+            style: fontStyle,
+            semanticsLabel: 'The temperature is $temp',
+          ),
+          Text(
+            weather,
+            style: fontStyle,
+            semanticsLabel: 'The weather is $weather',
+          ),
+          new Container(
+            height: 80.0,
+            width: 480.0,
+            // TODO: Test Semantics on physical device
+            child: Semantics(
+              label: 'You are located in $location.',
+              child: Marquee(
+                text: location,
+                style: fontStyle,
+              ),
             ),
           ),
-        ]
+        ],
       ),
     );
   }
-  
 }
