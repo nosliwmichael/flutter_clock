@@ -11,3 +11,12 @@ Future<SpriteSheet> loadSpriteSheet() async {
   assert(_spriteSheet.image != null);
   return _spriteSheet;
 }
+
+Future<ImageMap> loadWeatherImages() async {
+  ImageMap _imageMap = new ImageMap(rootBundle);
+  await _imageMap.load(<String>[
+    'assets/images/clouds-0.png',
+    'assets/images/clouds-1.png'
+  ]);
+  return _imageMap;
+}

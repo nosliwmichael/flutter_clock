@@ -1,13 +1,14 @@
 import 'dart:async';
-import 'package:city_clock/clock_text.dart';
+import 'package:city_clock/clock/clock_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:spritewidget/spritewidget.dart';
 import 'package:flutter_clock_helper/model.dart';
 
 class Clock extends StatefulWidget {
-  Clock(this.model);
+  Clock(this.model, this.images);
 
   final ClockModel model;
+  final ImageMap images;
 
   @override
   _ClockState createState() => _ClockState();
@@ -61,29 +62,10 @@ class _ClockState extends State<Clock> {
     return Container(
       child: Stack(
         children: <Widget>[
-          Image(
-            image: AssetImage('assets/images/sky.jpg'),
-            fit: BoxFit.cover,
-          ),
-//          FutureBuilder(
-//            future: loadAsset(),
-//            builder: (BuildContext context, AsyncSnapshot snapshot) {
-//              return Text(snapshot.data);
-//            },
-//          ),
-          Image(
-            image: AssetImage('assets/images/buildings.png'),
-            fit: BoxFit.cover,
-          ),
           ClockText(widget.model, _dateTime),
         ]
       ),
     );
   }
   
-}
-
-Future<String> loadAsset() async {
-  String s = 'test';
-  return s;
 }
