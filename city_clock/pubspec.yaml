@@ -66,6 +66,7 @@ flutter:
     - assets/images/streets/street_night.png
     # Load skies
     - assets/images/skies/sky_night.png
+    - assets/images/skies/sky_day.png
     # Load signs
     - assets/images/signs/sign_night.png
 

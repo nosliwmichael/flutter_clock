@@ -5,8 +5,8 @@ class TextureImage extends StatelessWidget {
   TextureImage({
     Key key,
     this.texture,
-    this.width: 128.0,
-    this.height: 128.0
+    this.width: 800.0,
+    this.height: 480.0
   }) : super(key: key);
 
   final SpriteTexture texture;

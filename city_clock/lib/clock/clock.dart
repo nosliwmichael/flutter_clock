@@ -54,6 +54,7 @@ class _ClockState extends State<Clock> {
   Widget build(BuildContext context) {
     return Container(
       child: Stack(
+        fit: StackFit.expand,
         children: <Widget>[
           ClockText(widget.model, _dateTime),
         ]
