@@ -8,7 +8,7 @@ class ClockText extends StatelessWidget {
   final ClockModel model;
   final DateTime dateTime;
   final fontStyle = TextStyle(
-    fontFamily: 'Monoton',
+    fontFamily: 'Pixel_Text',
     fontSize: 40,
     fontWeight: FontWeight.bold,
     color: Colors.white,
