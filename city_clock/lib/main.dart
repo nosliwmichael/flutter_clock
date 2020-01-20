@@ -10,7 +10,7 @@ void main() async {
   // Enable widget binding before runApp is called so we can load assets
   WidgetsFlutterBinding.ensureInitialized();
   // Hide nav/status bars
-  SystemChrome.setEnabledSystemUIOverlays(<SystemUiOverlay>[]);
+  // SystemChrome.setEnabledSystemUIOverlays(<SystemUiOverlay>[]);
 
   // Contains scene/environment assets
   ImageMap images = await loadWeatherImages();

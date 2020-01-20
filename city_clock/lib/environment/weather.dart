@@ -21,7 +21,7 @@ class CloudyWeather extends NodeWithSize {
         dark: true,
         loopTime: 75.0
     );
-    addChild(_cloudsDark);
+    // addChild(_cloudsDark);
 
     _cloudsSoft = new CloudLayer(
         image: images['assets/images/clouds-1.png'],
@@ -29,7 +29,7 @@ class CloudyWeather extends NodeWithSize {
         dark: false,
         loopTime: 100.0
     );
-    addChild(_cloudsSoft);
+    // addChild(_cloudsSoft);
   }
 
   ImageMap images;
@@ -54,6 +54,7 @@ class CloudLayer extends Node {
     // Creates and positions the two cloud sprites.
     _sprites.add(_createSprite(image, dark, rotated));
     _sprites[0].position = const Offset(1024.0, 1024.0);
+    _sprites[0].opacity = 1.0;
     addChild(_sprites[0]);
 
     _sprites.add(_createSprite(image, dark, rotated));

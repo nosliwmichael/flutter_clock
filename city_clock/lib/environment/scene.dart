@@ -103,22 +103,24 @@ Widget loadCityFront(ImageMap images) {
   return cityFront;
 }
 Widget loadStreet(ImageMap images) {
-  Image street;
+  Widget street;
   DateTime now = DateTime.now();
   DateTime dayStart = new DateTime(now.year, now.month, now.day, 6, 30);
   DateTime dayEnd = new DateTime(now.year, now.month, now.day, 18, 5);
 
   // Check if day time
   if (now.isAfter(dayStart) && now.isBefore(dayEnd)) {
-    street = Image(
-      image: AssetImage('assets/images/streets/street_night.png'),
-      fit: BoxFit.cover,
+    street = FittedBox(
+      child: Image(
+        image: AssetImage('assets/images/streets/street_night.png'),
+      ),
+      fit: BoxFit.fill,
     );
   }
   else {
     street = Image(
       image: AssetImage('assets/images/streets/street_night.png'),
-      fit: BoxFit.cover,
+      fit: BoxFit.fitWidth,
     );
   }
   return street;
