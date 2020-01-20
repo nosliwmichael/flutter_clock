@@ -92,9 +92,9 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
-  fonts:
-    - family: __
-      fonts:
-        - asset: assets/fonts/
+#  fonts:
+#    - family: __
+#      fonts:
+#        - asset: assets/fonts/
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
