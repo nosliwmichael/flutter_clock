@@ -8,7 +8,7 @@ class ClockText extends StatelessWidget {
   final DateTime dateTime;
   final fontStyle = TextStyle(
     fontFamily: 'Pixel_Text',
-    fontSize: 24,
+    fontSize: 40,
     fontWeight: FontWeight.bold,
     color: Color.fromARGB(255, 14, 62, 110),
   );
@@ -24,9 +24,11 @@ class ClockText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double h = MediaQuery.of(context).size.height;
+    double w = MediaQuery.of(context).size.width;
     return Positioned(
-      bottom: MediaQuery.of(context).size.height - 110,
-      left: MediaQuery.of(context).size.width - 220,
+      top: h / 5,
+      left: w * .5575,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

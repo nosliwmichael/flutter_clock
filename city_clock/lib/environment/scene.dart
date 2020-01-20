@@ -33,6 +33,7 @@ class Scene extends StatelessWidget {
     sceneWidgets.add(Clock(model, images));
     return Stack(
       children: sceneWidgets,
+      fit: StackFit.expand
     );
   }
 }
@@ -47,13 +48,13 @@ Widget loadSky(ImageMap images) {
   if (now.isAfter(dayStart) && now.isBefore(dayEnd)) {
     sky = Image(
       image: AssetImage('assets/images/skies/sky_night.png'),
-      fit: BoxFit.cover,
+      fit: BoxFit.fitWidth,
     );
   }
   else {
     sky = Image(
       image: AssetImage('assets/images/skies/sky_night.png'),
-      fit: BoxFit.cover,
+      fit: BoxFit.fitWidth,
     );
   }
   return sky;
@@ -69,13 +70,13 @@ Widget loadCityBack(ImageMap images) {
   if (now.isAfter(dayStart) && now.isBefore(dayEnd)) {
     cityBack = Image(
       image: AssetImage('assets/images/city_back/city_back_night.png'),
-      fit: BoxFit.cover,
+      fit: BoxFit.fitWidth,
     );
   }
   else {
     cityBack = Image(
       image: AssetImage('assets/images/city_back/city_back_night.png'),
-      fit: BoxFit.cover,
+      fit: BoxFit.fitWidth,
     );
   }
   return cityBack;
@@ -91,13 +92,13 @@ Widget loadCityFront(ImageMap images) {
   if (now.isAfter(dayStart) && now.isBefore(dayEnd)) {
     cityFront = Image(
       image: AssetImage('assets/images/city_front/city_front_night.png'),
-      fit: BoxFit.cover,
+      fit: BoxFit.fitWidth,
     );
   }
   else {
     cityFront = Image(
       image: AssetImage('assets/images/city_front/city_front_night.png'),
-      fit: BoxFit.cover,
+      fit: BoxFit.fitWidth,
     );
   }
   return cityFront;
@@ -110,11 +111,9 @@ Widget loadStreet(ImageMap images) {
 
   // Check if day time
   if (now.isAfter(dayStart) && now.isBefore(dayEnd)) {
-    street = FittedBox(
-      child: Image(
-        image: AssetImage('assets/images/streets/street_night.png'),
-      ),
-      fit: BoxFit.fill,
+    street = Image(
+      image: AssetImage('assets/images/streets/street_night.png'),
+      fit: BoxFit.fitWidth,
     );
   }
   else {
@@ -135,13 +134,13 @@ Widget loadSign(ImageMap images) {
   if (now.isAfter(dayStart) && now.isBefore(dayEnd)) {
     sign = Image(
       image: AssetImage('assets/images/signs/sign_night.png'),
-      fit: BoxFit.cover,
+      fit: BoxFit.fitWidth,
     );
   }
   else {
     sign = Image(
       image: AssetImage('assets/images/signs/sign_night.png'),
-      fit: BoxFit.cover,
+      fit: BoxFit.fitWidth,
     );
   }
   return sign;
