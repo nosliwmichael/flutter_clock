@@ -3,10 +3,10 @@ import 'package:spritewidget/spritewidget.dart';
 
 Future<SpriteSheet> loadSpriteSheet() async {
   ImageMap _imageMap = new ImageMap(rootBundle);
-  await _imageMap.loadImage('assets/spritesheet.png');
+  await _imageMap.loadImage('assets/sprites/spritesheet.png');
 
-  String json = await rootBundle.loadString('assets/spritesheet.json');
-  SpriteSheet _spriteSheet = new SpriteSheet(_imageMap['assets/spritesheet.png'], json);
+  String json = await rootBundle.loadString('assets/sprites/spritesheet.json');
+  SpriteSheet _spriteSheet = new SpriteSheet(_imageMap['assets/sprites/spritesheet.png'], json);
 
   assert(_spriteSheet.image != null);
   return _spriteSheet;
@@ -15,8 +15,9 @@ Future<SpriteSheet> loadSpriteSheet() async {
 Future<ImageMap> loadWeatherImages() async {
   ImageMap _imageMap = new ImageMap(rootBundle);
   await _imageMap.load(<String>[
+    'assets/images/night_sky.jpg',
     'assets/images/clouds-0.png',
-    'assets/images/clouds-1.png'
+    'assets/images/clouds-1.png',
   ]);
   return _imageMap;
 }

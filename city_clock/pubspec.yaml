@@ -57,8 +57,11 @@ flutter:
     - assets/sprites/spritesheet.json
     # Images
     - assets/images/city_scene.jpg
-    - assets/images/sky.jpg
+    - assets/images/day_sky.jpg
+    - assets/images/night_sky.jpg
     - assets/images/buildings.png
+    - assets/images/buildings2.png
+    - assets/images/tower.png
     - assets/clouds-0.png
     - assets/clouds-1.png
 

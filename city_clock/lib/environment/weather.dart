@@ -5,33 +5,13 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:spritewidget/spritewidget.dart';
 
-const List<Color> _kBackgroundColorsTop = const <Color>[
-  const Color(0xff5ebbd5),
-  const Color(0xff0b2734),
-  const Color(0xffcbced7)
-];
-
-const List<Color> _kBackgroundColorsBottom = const <Color>[
-  const Color(0xff4aaafb),
-  const Color(0xff4c5471),
-  const Color(0xffe0e3ec)
-];
-class Weather extends NodeWithSize {
-  Weather(images): super(const Size(800,480)) {
-    // Start by adding a background.
-    _background = new GradientNode(
-      this.size,
-      _kBackgroundColorsTop[1],
-      _kBackgroundColorsBottom[1],
-    );
-    addChild(_background);
-
-    // Then three layers of clouds, that will be scrolled in parallax.
+class CloudyWeather extends NodeWithSize {
+  CloudyWeather(this.images): super(const Size(800,480)) {
     _cloudsSharp = new CloudLayer(
         image: images['assets/images/clouds-0.png'],
         rotated: false,
         dark: false,
-        loopTime: 20.0
+        loopTime: 50.0
     );
     addChild(_cloudsSharp);
 
@@ -39,7 +19,7 @@ class Weather extends NodeWithSize {
         image: images['assets/images/clouds-1.png'],
         rotated: true,
         dark: true,
-        loopTime: 40.0
+        loopTime: 75.0
     );
     addChild(_cloudsDark);
 
@@ -47,38 +27,25 @@ class Weather extends NodeWithSize {
         image: images['assets/images/clouds-1.png'],
         rotated: false,
         dark: false,
-        loopTime: 60.0
+        loopTime: 100.0
     );
     addChild(_cloudsSoft);
   }
 
-  GradientNode _background;
+  ImageMap images;
   CloudLayer _cloudsSharp;
   CloudLayer _cloudsSoft;
   CloudLayer _cloudsDark;
 }
 
-// The GradientNode performs custom drawing to draw a gradient background.
-class GradientNode extends NodeWithSize {
-  GradientNode(Size size, this.colorTop, this.colorBottom) : super(size);
-
-  Color colorTop;
-  Color colorBottom;
-
-  @override
-  void paint(Canvas canvas) {
-    applyTransformForPivot(canvas);
-
-    Rect rect = Offset.zero & size;
-    Paint gradientPaint = new Paint()..shader = new LinearGradient(
-        begin: FractionalOffset.topLeft,
-        end: FractionalOffset.bottomLeft,
-        colors: <Color>[colorTop, colorBottom],
-        stops: <double>[0.0, 1.0]
-    ).createShader(rect);
-
-    canvas.drawRect(rect, gradientPaint);
+class RainyWeather extends NodeWithSize {
+  RainyWeather(this.spriteSheet): super(const Size(800,480)) {
+    _rain = new Rain(spriteSheet['rain_drop.png']);
+    _rain.active = true;
+    addChild(_rain);
   }
+  SpriteSheet spriteSheet;
+  Rain _rain;
 }
 
 // Draws and animates a cloud layer using two sprites.
@@ -133,6 +100,67 @@ class CloudLayer extends Node {
           opacity,
           1.0
       ));
+    }
+  }
+}
+
+// Rain layer. Uses three layers of particle systems, to create a parallax
+// rain effect.
+class Rain extends Node {
+  Rain(this.spriteTexture) {
+    _addParticles(2.5);
+    _addParticles(3.0);
+    _addParticles(3.5);
+  }
+
+  SpriteTexture spriteTexture;
+
+  List<ParticleSystem> _particles = <ParticleSystem>[];
+
+  void _addParticles(double distance) {
+    ParticleSystem particles = new ParticleSystem(
+      spriteTexture,
+      transferMode: BlendMode.srcATop,
+      posVar: const Offset(1300.0, 0.0),
+      direction: 90.0,
+      directionVar: 0.0,
+      speed: 1000.0 / distance,
+      speedVar: 100.0 / distance,
+      startSize: 1.2 / distance,
+      startSizeVar: 0.2 / distance,
+      endSize: 1.2 / distance,
+      endSizeVar: 0.2 / distance,
+      life: 1.5 * distance,
+      lifeVar: 1.0 * distance
+    );
+    particles.position = const Offset(1024.0, -200.0);
+    particles.rotation = 10.0;
+    particles.opacity = 0.0;
+
+    _particles.add(particles);
+    addChild(particles);
+  }
+
+  set active(bool active) {
+    motions.stopAll();
+    for (ParticleSystem system in _particles) {
+      if (active) {
+        motions.run(
+          new MotionTween<double>(
+            (a) => system.opacity = a,
+            system.opacity,
+            1.0,
+            2.0
+        ));
+      } else {
+        motions.run(
+          new MotionTween<double>(
+            (a) => system.opacity = a,
+            system.opacity,
+            0.0,
+            0.5
+        ));
+      }
     }
   }
 }

@@ -1,90 +1,46 @@
 {
 	"frames": [
 		{
-			"filename": "RunRight01.png",
+			"filename": "elevator.png",
 			"frame": {
 				"x": 1,
 				"y": 1,
-				"w": 128,
-				"h": 128
+				"w": 4,
+				"h": 7
 			},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {
 				"x": 0,
 				"y": 0,
-				"w": 128,
-				"h": 128
+				"w": 4,
+				"h": 7
 			},
 			"sourceSize": {
-				"w": 128,
-				"h": 128
+				"w": 4,
+				"h": 7
 			},
 			"pivot": {"x":0.5,"y":0.5}
 		},
 		{
-			"filename": "RunRight02.png",
+			"filename": "rain_drop.png",
 			"frame": {
-				"x": 131,
+				"x": 7,
 				"y": 1,
-				"w": 128,
-				"h": 128
+				"w": 11,
+				"h": 108
 			},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {
 				"x": 0,
 				"y": 0,
-				"w": 128,
-				"h": 128
+				"w": 11,
+				"h": 108
 			},
 			"sourceSize": {
-				"w": 128,
-				"h": 128
-			},
-			"pivot": {"x":0.5,"y":0.5}
-		},
-		{
-			"filename": "RunRight03.png",
-			"frame": {
-				"x": 1,
-				"y": 131,
-				"w": 128,
-				"h": 128
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 128,
-				"h": 128
-			},
-			"sourceSize": {
-				"w": 128,
-				"h": 128
-			},
-			"pivot": {"x":0.5,"y":0.5}
-		},
-		{
-			"filename": "RunRight04.png",
-			"frame": {
-				"x": 131,
-				"y": 131,
-				"w": 128,
-				"h": 128
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 128,
-				"h": 128
-			},
-			"sourceSize": {
-				"w": 128,
-				"h": 128
+				"w": 11,
+				"h": 108
 			},
 			"pivot": {"x":0.5,"y":0.5}
 		}
@@ -95,8 +51,8 @@
 		"image": "spritesheet.png",
 		"format": "RGBA8888",
 		"size": {
-			"w": 260,
-			"h": 260
+			"w": 19,
+			"h": 110
 		},
 		"scale": "1"
 	}

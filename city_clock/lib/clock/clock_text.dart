@@ -47,13 +47,14 @@ class ClockText extends StatelessWidget {
             semanticsLabel: 'The weather is $_weather',
           ),
           new Container(
-            height: 80.0,
-            width: 480.0,
+            height: 20.0,
+            width: 110.0,
             // TODO: Test Semantics on physical device
             child: Semantics(
               label: 'You are located in $_location.',
               child: Marquee(
                 text: _location,
+                blankSpace: 180,
                 style: fontStyle,
               ),
             ),
