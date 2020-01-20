@@ -20,18 +20,21 @@ class Scene extends StatelessWidget {
         model.weatherString == 'snowy') {
       sceneWidgets.add(SpriteWidget(CloudyWeather(images)));
     }
-    sceneWidgets.add(Image(
-      image: AssetImage('assets/images/buildings2.png'),
-      fit: BoxFit.cover,
-    ));
-    if (model.weatherString == 'rainy' || 
-        model.weatherString == 'thunderstorm') {
-      sceneWidgets.add(SpriteWidget(RainyWeather(spriteSheet)));
-    }
-    sceneWidgets.add(Image(
-      image: AssetImage('assets/images/tower.png'),
-      fit: BoxFit.cover,
-    ));
+//    sceneWidgets.add(loadSign(images));
+//      image: AssetImage('assets/images/buildings2.png'),
+//      fit: BoxFit.cover,
+//    ));
+//    if (model.weatherString == 'rainy' ||
+//        model.weatherString == 'thunderstorm') {
+//      sceneWidgets.add(SpriteWidget(RainyWeather(spriteSheet)));
+//    }
+//    sceneWidgets.add(Image(
+//      image: AssetImage('assets/images/tower.png'),
+//      fit: BoxFit.cover,
+//    ));
+    sceneWidgets.add(loadCityBack(images));
+    sceneWidgets.add(loadCityFront(images));
+    sceneWidgets.add(loadStreet(images));
     sceneWidgets.add(Clock(model, images));
     return Stack(
       children: sceneWidgets,
@@ -48,15 +51,28 @@ Widget loadSky(ImageMap images) {
   // Check if day time
   if (now.isAfter(dayStart) && now.isBefore(dayEnd)) {
     sky = Image(
-      image: AssetImage('assets/images/day_sky.jpg'),
+      image: AssetImage('assets/images/skies/sky_night.png'),
       fit: BoxFit.cover,
     );
   }
   else {
     sky = Image(
-      image: AssetImage('assets/images/night_sky.jpg'),
+      image: AssetImage('assets/images/skies/sky_night.png'),
       fit: BoxFit.cover,
     );
   }
   return sky;
+}
+
+Widget loadCityBack(ImageMap images) {
+
+}
+Widget loadCityFront(ImageMap images) {
+
+}
+Widget loadStreet(ImageMap images) {
+
+}
+Widget loadSign(ImageMap images) {
+
 }
