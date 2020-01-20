@@ -15,7 +15,6 @@ Future<SpriteSheet> loadSpriteSheet() async {
 Future<ImageMap> loadWeatherImages() async {
   ImageMap _imageMap = new ImageMap(rootBundle);
   await _imageMap.load(<String>[
-    'assets/images/night_sky.jpg',
     'assets/images/clouds-0.png',
     'assets/images/clouds-1.png',
   ]);

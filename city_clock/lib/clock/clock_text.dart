@@ -8,19 +8,20 @@ class ClockText extends StatelessWidget {
   final ClockModel model;
   final DateTime dateTime;
   final fontStyle = TextStyle(
-    fontFamily: 'Monoton',
-    fontSize: 10,
+    fontFamily: 'Pixel_Text',
+    fontSize: 40,
     fontWeight: FontWeight.bold,
     color: Colors.white,
   );
-  final _hour, _minute, _second, _weather, _temp, _location;
+  final _hour, _minute, _second, _weather, _temp, _location, _weekday;
   ClockText(this.model, this.dateTime):
       _hour = DateFormat(model.is24HourFormat ? 'HH' : 'hh').format(dateTime),
       _minute = DateFormat('mm').format(dateTime),
       _second = DateFormat('ss').format(dateTime),
       _weather = model.weatherString,
       _temp = model.temperatureString,
-      _location = model.location;
+      _location = model.location,
+      _weekday = DateFormat('E').format(dateTime);
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +37,14 @@ class ClockText extends StatelessWidget {
             semanticsLabel:
                 'The time is $_hour hours, $_minute minutes, and $_second seconds.',
           ),
+          AnimatedOpacity(
+            child:
+              Text("pew pew"),
+            opacity: 1.0,
+            duration: Duration(seconds: 1),
+          ),
           Text(
-            _temp,
+            '$_weekday $_temp',
             style: fontStyle,
             semanticsLabel: 'The temperature is $_temp',
           ),

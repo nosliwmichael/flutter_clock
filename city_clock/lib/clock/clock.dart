@@ -17,7 +17,6 @@ class Clock extends StatefulWidget {
 class _ClockState extends State<Clock> {
   DateTime _dateTime = DateTime.now();
   Timer _timer;
-  int texture = 0;
   
   @override
   void initState() {
@@ -44,16 +43,10 @@ class _ClockState extends State<Clock> {
       this._dateTime = DateTime.now();
       this._timer = Timer(
         // Duration(minutes: 1) -
-        Duration(seconds: 1) - 
+        Duration(milliseconds: 500) -
         Duration(milliseconds: _dateTime.millisecond),
         _updateTime,
       );
-      
-      if (texture < 3) {
-        texture++;
-      } else {
-        texture = 0;
-      }
     });
   }
 

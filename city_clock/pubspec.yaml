@@ -56,14 +56,18 @@ flutter:
     - assets/sprites/spritesheet.png
     - assets/sprites/spritesheet.json
     # Images
-    - assets/images/city_scene.jpg
-    - assets/images/day_sky.jpg
-    - assets/images/night_sky.jpg
-    - assets/images/buildings.png
-    - assets/images/buildings2.png
-    - assets/images/tower.png
     - assets/clouds-0.png
     - assets/clouds-1.png
+    # Load city backdrops
+    - assets/images/city_back/city_back_night.png
+    # Load city foregrounds
+    - assets/images/city_front/city_front_night.png
+    # Load streets
+    - assets/images/streets/street_night.png
+    # Load skies
+    - assets/images/skies/sky_night.png
+    # Load signs
+    - assets/images/signs/sign_night.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -89,8 +93,8 @@ flutter:
   #         weight: 700
   #
   fonts:
-    - family: Monoton
+    - family: Pixel_Text
       fonts:
-        - asset: assets/fonts/Monoton-Regular.ttf
+        - asset: assets/fonts/PressStart2P-Regular.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
