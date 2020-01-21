@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clock_helper/model.dart';
 import 'package:intl/intl.dart';
-import 'package:marquee/marquee.dart';
 import 'package:global_configuration/global_configuration.dart';
 
 class ClockText extends StatelessWidget {
@@ -13,17 +12,12 @@ class ClockText extends StatelessWidget {
     fontWeight: FontWeight.bold,
     color: Color.fromARGB(255, 14, 62, 110),
   );
-  final _hour1, _hour2,_minute1,_minute2, _second, _weather, _temp, _location, _weekday;
+  final _hour1, _hour2,_minute1,_minute2;
   ClockText(this.model, this.dateTime):
       _hour1 = DateFormat(model.is24HourFormat ? 'HH' : 'hh').format(dateTime)[0],
       _hour2 = DateFormat(model.is24HourFormat ? 'HH' : 'hh').format(dateTime)[1],
       _minute1 = DateFormat('mm').format(dateTime)[0],
-      _minute2 = DateFormat('mm').format(dateTime)[1],
-      _second = DateFormat('ss').format(dateTime),
-      _weather = model.weatherString,
-      _temp = model.temperatureString,
-      _location = model.location,
-      _weekday = DateFormat('E').format(dateTime);
+      _minute2 = DateFormat('mm').format(dateTime)[1];
 
   Widget loadTimeImages() {
     Image image;
@@ -71,18 +65,6 @@ class ClockText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double h = MediaQuery
-        .of(context)
-        .size
-        .height;
-    double w = MediaQuery
-        .of(context)
-        .size
-        .width;
-    final dpr = MediaQuery
-        .of(context)
-        .devicePixelRatio;
     return loadTimeImages();
   }
-//
 }
