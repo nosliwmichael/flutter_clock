@@ -74,6 +74,7 @@ flutter:
     # Load signs
     - assets/images/signs/sign_night.png
     # Time Digits
+    - assets/digits/colon.png
     - assets/digits/hour1-0.png
     - assets/digits/hour1-1.png
     - assets/digits/hour1-2.png
