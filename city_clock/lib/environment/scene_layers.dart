@@ -7,25 +7,28 @@ Widget loadSky() {
     fit: BoxFit.fitWidth,
   );
 }
+
 Widget loadCityBack() {
   return Image(
     image: AssetImage(GlobalConfiguration().getString("cityBackNight")),
     fit: BoxFit.fitWidth,
   );
-
 }
+
 Widget loadCityFront() {
   return Image(
     image: AssetImage(GlobalConfiguration().getString("cityFrontNight")),
     fit: BoxFit.fitWidth,
   );
 }
+
 Widget loadStreet() {
   return Image(
     image: AssetImage(GlobalConfiguration().getString("streetNight")),
-      fit: BoxFit.fitWidth,
-    );
+    fit: BoxFit.fitWidth,
+  );
 }
+
 Widget loadSign() {
   return Image(
     image: AssetImage(GlobalConfiguration().getString("signNight")),

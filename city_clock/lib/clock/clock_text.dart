@@ -12,12 +12,14 @@ class ClockText extends StatelessWidget {
     fontWeight: FontWeight.bold,
     color: Color.fromARGB(255, 14, 62, 110),
   );
-  final _hour1, _hour2,_minute1,_minute2;
-  ClockText(this.model, this.dateTime):
-      _hour1 = DateFormat(model.is24HourFormat ? 'HH' : 'hh').format(dateTime)[0],
-      _hour2 = DateFormat(model.is24HourFormat ? 'HH' : 'hh').format(dateTime)[1],
-      _minute1 = DateFormat('mm').format(dateTime)[0],
-      _minute2 = DateFormat('mm').format(dateTime)[1];
+  final _hour1, _hour2, _minute1, _minute2;
+  ClockText(this.model, this.dateTime)
+      : _hour1 =
+            DateFormat(model.is24HourFormat ? 'HH' : 'hh').format(dateTime)[0],
+        _hour2 =
+            DateFormat(model.is24HourFormat ? 'HH' : 'hh').format(dateTime)[1],
+        _minute1 = DateFormat('mm').format(dateTime)[0],
+        _minute2 = DateFormat('mm').format(dateTime)[1];
 
   Widget loadTimeImages() {
     Image image;
@@ -57,10 +59,7 @@ class ClockText extends StatelessWidget {
     );
     timeList.add(image);
 
-    return Stack(
-        children: timeList,
-        fit: StackFit.expand
-    );
+    return Stack(children: timeList, fit: StackFit.expand);
   }
 
   @override

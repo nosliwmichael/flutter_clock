@@ -17,7 +17,7 @@ class Clock extends StatefulWidget {
 class _ClockState extends State<Clock> {
   DateTime _dateTime = DateTime.now();
   Timer _timer;
-  
+
   @override
   void initState() {
     super.initState();
@@ -44,7 +44,7 @@ class _ClockState extends State<Clock> {
       this._timer = Timer(
         // Duration(minutes: 1) -
         Duration(milliseconds: 500) -
-        Duration(milliseconds: _dateTime.millisecond),
+            Duration(milliseconds: _dateTime.millisecond),
         _updateTime,
       );
     });
@@ -53,13 +53,9 @@ class _ClockState extends State<Clock> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          ClockText(widget.model, _dateTime),
-        ]
-      ),
+      child: Stack(fit: StackFit.expand, children: <Widget>[
+        ClockText(widget.model, _dateTime),
+      ]),
     );
   }
-  
 }

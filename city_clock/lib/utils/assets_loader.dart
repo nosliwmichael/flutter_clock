@@ -6,8 +6,10 @@ Future<SpriteSheet> loadSpriteSheet() async {
   ImageMap _imageMap = new ImageMap(rootBundle);
   await _imageMap.loadImage(GlobalConfiguration().getString("spriteSheet"));
 
-  String json = await rootBundle.loadString(GlobalConfiguration().getString("spriteSheetJson"));
-  SpriteSheet _spriteSheet = new SpriteSheet(_imageMap[GlobalConfiguration().getString("spriteSheet")], json);
+  String json = await rootBundle
+      .loadString(GlobalConfiguration().getString("spriteSheetJson"));
+  SpriteSheet _spriteSheet = new SpriteSheet(
+      _imageMap[GlobalConfiguration().getString("spriteSheet")], json);
 
   assert(_spriteSheet.image != null);
   return _spriteSheet;

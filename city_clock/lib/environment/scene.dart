@@ -16,9 +16,9 @@ class Scene extends StatelessWidget {
     List<Widget> sceneWidgets = new List();
     sceneWidgets.add(loadSky());
     //Add clouds
-    if (model.weatherString == 'cloudy' || 
+    if (model.weatherString == 'cloudy' ||
         model.weatherString == 'foggy' ||
-        model.weatherString == 'rainy' || 
+        model.weatherString == 'rainy' ||
         model.weatherString == 'thunderstorm' ||
         model.weatherString == 'snowy') {
       sceneWidgets.add(SpriteWidget(CloudyWeather(images)));
@@ -33,9 +33,6 @@ class Scene extends StatelessWidget {
     sceneWidgets.add(loadStreet());
     sceneWidgets.add(loadSign());
     sceneWidgets.add(Clock(model, images));
-    return Stack(
-      children: sceneWidgets,
-      fit: StackFit.expand
-    );
-  }  
+    return Stack(children: sceneWidgets, fit: StackFit.expand);
+  }
 }

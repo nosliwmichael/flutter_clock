@@ -21,5 +21,6 @@ void main() async {
   SpriteSheet spriteSheet = await loadSpriteSheet();
 
   // Start app with ClockCustomizer widget
-  runApp(ClockCustomizer((ClockModel model) => Scene(model, images, spriteSheet)));
+  runApp(
+      ClockCustomizer((ClockModel model) => Scene(model, images, spriteSheet)));
 }
