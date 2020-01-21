@@ -1,48 +1,26 @@
 {
 	"frames": [
 		{
-			"filename": "elevator.png",
+			"filename": "rain_drop.png",
 			"frame": {
 				"x": 1,
 				"y": 1,
-				"w": 4,
-				"h": 7
+				"w": 27,
+				"h": 45
 			},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {
 				"x": 0,
 				"y": 0,
-				"w": 4,
-				"h": 7
+				"w": 27,
+				"h": 45
 			},
 			"sourceSize": {
-				"w": 4,
-				"h": 7
+				"w": 27,
+				"h": 45
 			},
-			"pivot": {"x":0.5,"y":0.5}
-		},
-		{
-			"filename": "rain_drop.png",
-			"frame": {
-				"x": 7,
-				"y": 1,
-				"w": 11,
-				"h": 108
-			},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {
-				"x": 0,
-				"y": 0,
-				"w": 11,
-				"h": 108
-			},
-			"sourceSize": {
-				"w": 11,
-				"h": 108
-			},
-			"pivot": {"x":0.5,"y":0.5}
+			"pivot": {"x":0.0,"y":0.0}
 		}
 	],
 	"meta": {
@@ -51,8 +29,8 @@
 		"image": "spritesheet.png",
 		"format": "RGBA8888",
 		"size": {
-			"w": 19,
-			"h": 110
+			"w": 29,
+			"h": 47
 		},
 		"scale": "1"
 	}

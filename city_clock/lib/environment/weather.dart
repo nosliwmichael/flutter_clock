@@ -21,7 +21,7 @@ class CloudyWeather extends NodeWithSize {
         dark: true,
         loopTime: 75.0
     );
-    // addChild(_cloudsDark);
+    addChild(_cloudsDark);
 
     _cloudsSoft = new CloudLayer(
         image: images['assets/images/clouds-1.png'],
@@ -29,7 +29,7 @@ class CloudyWeather extends NodeWithSize {
         dark: false,
         loopTime: 100.0
     );
-    // addChild(_cloudsSoft);
+    addChild(_cloudsSoft);
   }
 
   ImageMap images;
@@ -109,9 +109,10 @@ class CloudLayer extends Node {
 // rain effect.
 class Rain extends Node {
   Rain(this.spriteTexture) {
-    _addParticles(2.5);
-    _addParticles(3.0);
-    _addParticles(3.5);
+    _addParticles(4.0);
+    _addParticles(4.5);
+    _addParticles(5.0);
+    _addParticles(5.5);
   }
 
   SpriteTexture spriteTexture;
@@ -123,15 +124,15 @@ class Rain extends Node {
       spriteTexture,
       transferMode: BlendMode.srcATop,
       posVar: const Offset(1300.0, 0.0),
-      direction: 90.0,
+      direction: 85.0,
       directionVar: 0.0,
       speed: 1000.0 / distance,
       speedVar: 100.0 / distance,
-      startSize: 1.2 / distance,
+      startSize: 0.6 / distance,
       startSizeVar: 0.2 / distance,
       endSize: 1.2 / distance,
       endSizeVar: 0.2 / distance,
-      life: 1.5 * distance,
+      life: 1.0 * distance,
       lifeVar: 1.0 * distance
     );
     particles.position = const Offset(1024.0, -200.0);

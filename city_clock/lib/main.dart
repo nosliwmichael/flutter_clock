@@ -5,12 +5,15 @@ import 'package:flutter/services.dart';
 import 'package:flutter_clock_helper/customizer.dart';
 import 'package:flutter_clock_helper/model.dart';
 import 'package:spritewidget/spritewidget.dart';
+import 'package:global_configuration/global_configuration.dart';
 
 void main() async {
   // Enable widget binding before runApp is called so we can load assets
   WidgetsFlutterBinding.ensureInitialized();
   // Hide nav/status bars
   SystemChrome.setEnabledSystemUIOverlays(<SystemUiOverlay>[]);
+
+  await GlobalConfiguration().loadFromAsset("app_settings");
 
   // Contains scene/environment assets
   ImageMap images = await loadWeatherImages();
