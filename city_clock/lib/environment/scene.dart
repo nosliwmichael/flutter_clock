@@ -49,7 +49,7 @@ class _SceneState extends State<Scene> {
   @override
   Widget build(BuildContext context) {
     List<Widget> sceneWidgets = new List();
-    sceneWidgets.add(loadSky(widget.images));
+    sceneWidgets.add(loadSky());
     //Add clouds
     if (widget.model.weatherString == 'cloudy' || 
         widget.model.weatherString == 'foggy' ||
@@ -58,15 +58,15 @@ class _SceneState extends State<Scene> {
         widget.model.weatherString == 'snowy') {
       sceneWidgets.add(SpriteWidget(CloudyWeather(widget.images)));
     }
-    sceneWidgets.add(loadCityBack(widget.images));
-    sceneWidgets.add(loadCityFront(widget.images));
+    sceneWidgets.add(loadCityBack());
+    sceneWidgets.add(loadCityFront());
     //Add rain
     if (widget.model.weatherString == 'rainy' ||
         widget.model.weatherString == 'thunderstorm') {
       sceneWidgets.add(SpriteWidget(RainyWeather(widget.spriteSheet)));
     }
-    sceneWidgets.add(loadStreet(widget.images));
-    sceneWidgets.add(loadSign(widget.images));
+    sceneWidgets.add(loadStreet());
+    sceneWidgets.add(loadSign());
     sceneWidgets.add(Clock(widget.model, widget.images));
     return Stack(
       children: sceneWidgets,
@@ -82,7 +82,7 @@ bool isDay() {
   return (now.isAfter(dayStart) && now.isBefore(dayEnd));
 }
 
-Widget loadSky(ImageMap images) {
+Widget loadSky() {
   Image sky;
 
   // Check if day time
@@ -100,7 +100,7 @@ Widget loadSky(ImageMap images) {
   }
   return sky;
 }
-Widget loadCityBack(ImageMap images) {
+Widget loadCityBack() {
   Image cityBack;
 
   // Check if day time
@@ -119,7 +119,7 @@ Widget loadCityBack(ImageMap images) {
   return cityBack;
 
 }
-Widget loadCityFront(ImageMap images) {
+Widget loadCityFront() {
   Image cityFront;
 
   // Check if day time
@@ -137,7 +137,7 @@ Widget loadCityFront(ImageMap images) {
   }
   return cityFront;
 }
-Widget loadStreet(ImageMap images) {
+Widget loadStreet() {
   Widget street;
 
   // Check if day time
@@ -155,7 +155,7 @@ Widget loadStreet(ImageMap images) {
   }
   return street;
 }
-Widget loadSign(ImageMap images) {
+Widget loadSign() {
   Image sign;
 
   // Check if day time
