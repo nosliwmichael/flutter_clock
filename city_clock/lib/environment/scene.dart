@@ -48,7 +48,7 @@ class _SceneState extends State<Scene> {
   @override
   Widget build(BuildContext context) {
     List<Widget> sceneWidgets = new List();
-    sceneWidgets.add(loadSky(widget.images));
+    sceneWidgets.add(loadSky());
     //Add clouds
     if (widget.model.weatherString == 'cloudy' || 
         widget.model.weatherString == 'foggy' ||
@@ -57,15 +57,15 @@ class _SceneState extends State<Scene> {
         widget.model.weatherString == 'snowy') {
       sceneWidgets.add(SpriteWidget(CloudyWeather(widget.images)));
     }
-    sceneWidgets.add(loadCityBack(widget.images));
-    sceneWidgets.add(loadCityFront(widget.images));
+    sceneWidgets.add(loadCityBack());
+    sceneWidgets.add(loadCityFront());
     //Add rain
     if (widget.model.weatherString == 'rainy' ||
         widget.model.weatherString == 'thunderstorm') {
       sceneWidgets.add(SpriteWidget(RainyWeather(widget.spriteSheet)));
     }
-    sceneWidgets.add(loadStreet(widget.images));
-    sceneWidgets.add(loadSign(widget.images));
+    sceneWidgets.add(loadStreet());
+    sceneWidgets.add(loadSign());
     sceneWidgets.add(Clock(widget.model, widget.images));
     return Stack(
       children: sceneWidgets,
@@ -74,7 +74,7 @@ class _SceneState extends State<Scene> {
   }  
 }
 
-Widget loadSky(ImageMap images) {
+Widget loadSky() {
   Image sky;
   DateTime now = DateTime.now();
   DateTime dayStart = new DateTime(now.year, now.month, now.day, 6, 30);
@@ -96,7 +96,7 @@ Widget loadSky(ImageMap images) {
   return sky;
 }
 
-Widget loadCityBack(ImageMap images) {
+Widget loadCityBack() {
   Image cityBack;
   DateTime now = DateTime.now();
   DateTime dayStart = new DateTime(now.year, now.month, now.day, 6, 30);
@@ -118,7 +118,7 @@ Widget loadCityBack(ImageMap images) {
   return cityBack;
 
 }
-Widget loadCityFront(ImageMap images) {
+Widget loadCityFront() {
   Image cityFront;
   DateTime now = DateTime.now();
   DateTime dayStart = new DateTime(now.year, now.month, now.day, 6, 30);
@@ -139,7 +139,7 @@ Widget loadCityFront(ImageMap images) {
   }
   return cityFront;
 }
-Widget loadStreet(ImageMap images) {
+Widget loadStreet() {
   Widget street;
   DateTime now = DateTime.now();
   DateTime dayStart = new DateTime(now.year, now.month, now.day, 6, 30);
@@ -160,7 +160,7 @@ Widget loadStreet(ImageMap images) {
   }
   return street;
 }
-Widget loadSign(ImageMap images) {
+Widget loadSign() {
   Image sign;
   DateTime now = DateTime.now();
   DateTime dayStart = new DateTime(now.year, now.month, now.day, 6, 30);
