@@ -25,33 +25,40 @@ class ClockText extends StatelessWidget {
       _location = model.location,
       _weekday = DateFormat('E').format(dateTime);
 
-  Widget loadTimeImages(hour_1,hour_2,minute_1,minute_2) {
+  Widget loadTimeImages() {
     Image image;
     List<Widget> timeList = new List();
     //Fetch and add Hour1 image
     image = Image(
-      image: AssetImage(GlobalConfiguration().getString('hour1-$hour_1')),
+      image: AssetImage(GlobalConfiguration().getString("hour1-$_hour1")),
       fit: BoxFit.fitWidth,
     );
     timeList.add(image);
 
     //Fetch and add Hour2 image
     image = Image(
-      image: AssetImage(GlobalConfiguration().getString('hour2-$hour_2')),
+      image: AssetImage(GlobalConfiguration().getString('hour2-$_hour2')),
+      fit: BoxFit.fitWidth,
+    );
+    timeList.add(image);
+
+    //Fetch and add ":" image
+    image = Image(
+      image: AssetImage(GlobalConfiguration().getString('colon')),
       fit: BoxFit.fitWidth,
     );
     timeList.add(image);
 
     //Fetch and add Minute1 image
     image = Image(
-      image: AssetImage(GlobalConfiguration().getString('minute1-$minute_1')),
+      image: AssetImage(GlobalConfiguration().getString('minute1-$_minute1')),
       fit: BoxFit.fitWidth,
     );
     timeList.add(image);
 
     //Fetch and add Minute2 image
     image = Image(
-      image: AssetImage(GlobalConfiguration().getString('minute2-$minute_2')),
+      image: AssetImage(GlobalConfiguration().getString('minute2-$_minute2')),
       fit: BoxFit.fitWidth,
     );
     timeList.add(image);
@@ -64,51 +71,18 @@ class ClockText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double h = MediaQuery.of(context).size.height;
-    double w = MediaQuery.of(context).size.width;
-    final dpr = MediaQuery.of(context).devicePixelRatio;
-    return Positioned(
-      top: h / 3,
-      left: w * .5575,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            decoration: new BoxDecoration(
-              color: Color.fromARGB(255, 0, 255, 255),
-            ),
-            child: Text(
-              '$_hour1$_hour2:$_minute1$_minute2',
-              style: fontStyle,
-              semanticsLabel:
-                  'The time is $_hour1$_hour2 hours, $_minute1$_minute2 minutes.',
-            ),
-          ),
-          // Text(
-          //   '$_weekday $_temp',
-          //   style: fontStyle,
-          //   semanticsLabel: 'The temperature is $_temp',
-          // ),
-          // Text(
-          //   _weather,
-          //   style: fontStyle,
-          //   semanticsLabel: 'The weather is $_weather',
-          // ),
-          // new Container(
-          //   height: 20.0,
-          //   width: 110.0,
-          //   // TODO: Test Semantics on physical device
-          //   child: Semantics(
-          //     label: 'You are located in $_location.',
-          //     child: Marquee(
-          //       text: _location,
-          //       blankSpace: 180,
-          //       style: fontStyle,
-          //     ),
-          //   ),
-          // ),
-        ],
-      ),
-    );
+    double h = MediaQuery
+        .of(context)
+        .size
+        .height;
+    double w = MediaQuery
+        .of(context)
+        .size
+        .width;
+    final dpr = MediaQuery
+        .of(context)
+        .devicePixelRatio;
+    return loadTimeImages();
   }
+//
 }
