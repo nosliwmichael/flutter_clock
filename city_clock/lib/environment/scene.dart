@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:city_clock/clock/clock.dart';
 import 'package:city_clock/environment/weather.dart';
 import 'package:flutter/material.dart';
@@ -7,67 +5,34 @@ import 'package:flutter_clock_helper/model.dart';
 import 'package:spritewidget/spritewidget.dart';
 import 'package:global_configuration/global_configuration.dart';
 
-class Scene extends StatefulWidget {
+class Scene extends StatelessWidget {
   final ClockModel model;
   final ImageMap images;
   final SpriteSheet spriteSheet;
   Scene(this.model, this.images, this.spriteSheet);
-  
-  @override
-  _SceneState createState() => _SceneState();
-}
-
-class _SceneState extends State<Scene> {
-  DateTime _dateTime = DateTime.now();
-  Timer _timer;
-
-  @override
-  void initState() {
-    super.initState();
-    _updateTime();
-  }
-
-  @override
-  void dispose() {
-    _timer?.cancel();
-    super.dispose();
-  }
-
-  void _updateTime() {
-    setState(() {
-      this._dateTime = DateTime.now();
-      this._timer = Timer(
-        Duration(minutes: 15) -
-        Duration(minutes: _dateTime.minute) - 
-        Duration(seconds: _dateTime.second) -
-        Duration(milliseconds: _dateTime.millisecond),
-        _updateTime,
-      );
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     List<Widget> sceneWidgets = new List();
     sceneWidgets.add(loadSky());
     //Add clouds
-    if (widget.model.weatherString == 'cloudy' || 
-        widget.model.weatherString == 'foggy' ||
-        widget.model.weatherString == 'rainy' || 
-        widget.model.weatherString == 'thunderstorm' ||
-        widget.model.weatherString == 'snowy') {
-      sceneWidgets.add(SpriteWidget(CloudyWeather(widget.images)));
+    if (model.weatherString == 'cloudy' || 
+        model.weatherString == 'foggy' ||
+        model.weatherString == 'rainy' || 
+        model.weatherString == 'thunderstorm' ||
+        model.weatherString == 'snowy') {
+      sceneWidgets.add(SpriteWidget(CloudyWeather(images)));
     }
     sceneWidgets.add(loadCityBack());
     sceneWidgets.add(loadCityFront());
     //Add rain
-    if (widget.model.weatherString == 'rainy' ||
-        widget.model.weatherString == 'thunderstorm') {
-      sceneWidgets.add(SpriteWidget(RainyWeather(widget.spriteSheet)));
+    if (model.weatherString == 'rainy' ||
+        model.weatherString == 'thunderstorm') {
+      sceneWidgets.add(SpriteWidget(RainyWeather(spriteSheet)));
     }
     sceneWidgets.add(loadStreet());
     sceneWidgets.add(loadSign());
-    sceneWidgets.add(Clock(widget.model, widget.images));
+    sceneWidgets.add(Clock(model, images));
     return Stack(
       children: sceneWidgets,
       fit: StackFit.expand

@@ -16,8 +16,8 @@ Future<SpriteSheet> loadSpriteSheet() async {
 Future<ImageMap> loadWeatherImages() async {
   ImageMap _imageMap = new ImageMap(rootBundle);
   await _imageMap.load(<String>[
-    GlobalConfiguration().getString("cloud0"),
-    GlobalConfiguration().getString("cloud1"),
+    'assets/images/clouds-0.png',
+    'assets/images/clouds-1.png',
   ]);
   return _imageMap;
 }

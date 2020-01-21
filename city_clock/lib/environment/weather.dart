@@ -21,7 +21,7 @@ class CloudyWeather extends NodeWithSize {
         dark: true,
         loopTime: 75.0
     );
-    // addChild(_cloudsDark);
+    addChild(_cloudsDark);
 
     _cloudsSoft = new CloudLayer(
         image: images['assets/images/clouds-1.png'],
@@ -29,7 +29,7 @@ class CloudyWeather extends NodeWithSize {
         dark: false,
         loopTime: 100.0
     );
-    // addChild(_cloudsSoft);
+    addChild(_cloudsSoft);
   }
 
   ImageMap images;
