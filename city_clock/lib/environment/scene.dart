@@ -100,6 +100,7 @@ Widget loadSky() {
   }
   return sky;
 }
+
 Widget loadCityBack() {
   Image cityBack;
 
