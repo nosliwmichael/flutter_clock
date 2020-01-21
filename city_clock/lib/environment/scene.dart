@@ -5,6 +5,7 @@ import 'package:city_clock/environment/weather.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_clock_helper/model.dart';
 import 'package:spritewidget/spritewidget.dart';
+import 'package:global_configuration/global_configuration.dart';
 
 class Scene extends StatefulWidget {
   final ClockModel model;
@@ -74,22 +75,26 @@ class _SceneState extends State<Scene> {
   }  
 }
 
-Widget loadSky() {
-  Image sky;
+bool isDay() {
   DateTime now = DateTime.now();
   DateTime dayStart = new DateTime(now.year, now.month, now.day, 6, 30);
   DateTime dayEnd = new DateTime(now.year, now.month, now.day, 18, 30);
+  return (now.isAfter(dayStart) && now.isBefore(dayEnd));
+}
+
+Widget loadSky() {
+  Image sky;
 
   // Check if day time
-  if (now.isAfter(dayStart) && now.isBefore(dayEnd)) {
+  if (isDay()) {
     sky = Image(
-      image: AssetImage('assets/images/skies/sky_day.png'),
+      image: AssetImage(GlobalConfiguration().getString("skyDay")),
       fit: BoxFit.fitWidth,
     );
   }
   else {
     sky = Image(
-      image: AssetImage('assets/images/skies/sky_night.png'),
+      image: AssetImage(GlobalConfiguration().getString("skyNight")),
       fit: BoxFit.fitWidth,
     );
   }
@@ -98,20 +103,17 @@ Widget loadSky() {
 
 Widget loadCityBack() {
   Image cityBack;
-  DateTime now = DateTime.now();
-  DateTime dayStart = new DateTime(now.year, now.month, now.day, 6, 30);
-  DateTime dayEnd = new DateTime(now.year, now.month, now.day, 18, 5);
 
   // Check if day time
-  if (now.isAfter(dayStart) && now.isBefore(dayEnd)) {
+  if (isDay()) {
     cityBack = Image(
-      image: AssetImage('assets/images/city_back/city_back_night.png'),
+      image: AssetImage(GlobalConfiguration().getString("cityBackNight")),
       fit: BoxFit.fitWidth,
     );
   }
   else {
     cityBack = Image(
-      image: AssetImage('assets/images/city_back/city_back_night.png'),
+      image: AssetImage(GlobalConfiguration().getString("cityBackNight")),
       fit: BoxFit.fitWidth,
     );
   }
@@ -120,20 +122,17 @@ Widget loadCityBack() {
 }
 Widget loadCityFront() {
   Image cityFront;
-  DateTime now = DateTime.now();
-  DateTime dayStart = new DateTime(now.year, now.month, now.day, 6, 30);
-  DateTime dayEnd = new DateTime(now.year, now.month, now.day, 18, 5);
 
   // Check if day time
-  if (now.isAfter(dayStart) && now.isBefore(dayEnd)) {
+  if (isDay()) {
     cityFront = Image(
-      image: AssetImage('assets/images/city_front/city_front_night.png'),
+      image: AssetImage(GlobalConfiguration().getString("cityFrontNight")),
       fit: BoxFit.fitWidth,
     );
   }
   else {
     cityFront = Image(
-      image: AssetImage('assets/images/city_front/city_front_night.png'),
+      image: AssetImage(GlobalConfiguration().getString("cityFrontNight")),
       fit: BoxFit.fitWidth,
     );
   }
@@ -141,20 +140,17 @@ Widget loadCityFront() {
 }
 Widget loadStreet() {
   Widget street;
-  DateTime now = DateTime.now();
-  DateTime dayStart = new DateTime(now.year, now.month, now.day, 6, 30);
-  DateTime dayEnd = new DateTime(now.year, now.month, now.day, 18, 5);
 
   // Check if day time
-  if (now.isAfter(dayStart) && now.isBefore(dayEnd)) {
+  if (isDay()) {
     street = Image(
-      image: AssetImage('assets/images/streets/street_night.png'),
+      image: AssetImage(GlobalConfiguration().getString("streetNight")),
       fit: BoxFit.fitWidth,
     );
   }
   else {
     street = Image(
-      image: AssetImage('assets/images/streets/street_night.png'),
+      image: AssetImage(GlobalConfiguration().getString("streetNight")),
       fit: BoxFit.fitWidth,
     );
   }
@@ -162,20 +158,17 @@ Widget loadStreet() {
 }
 Widget loadSign() {
   Image sign;
-  DateTime now = DateTime.now();
-  DateTime dayStart = new DateTime(now.year, now.month, now.day, 6, 30);
-  DateTime dayEnd = new DateTime(now.year, now.month, now.day, 18, 5);
 
   // Check if day time
-  if (now.isAfter(dayStart) && now.isBefore(dayEnd)) {
+  if (isDay()) {
     sign = Image(
-      image: AssetImage('assets/images/signs/sign_night.png'),
+      image: AssetImage(GlobalConfiguration().getString("signNight")),
       fit: BoxFit.fitWidth,
     );
   }
   else {
     sign = Image(
-      image: AssetImage('assets/images/signs/sign_night.png'),
+      image: AssetImage(GlobalConfiguration().getString("signNight")),
       fit: BoxFit.fitWidth,
     );
   }
