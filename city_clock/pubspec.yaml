@@ -54,6 +54,8 @@ flutter:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
   assets:
+    # Config
+    - assets/cfg/
     # Sprites
     - assets/sprites/spritesheet.png
     - assets/sprites/spritesheet.json

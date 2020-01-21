@@ -190,7 +190,7 @@ class _ClockCustomizerState extends State<ClockCustomizer> {
       home: Scaffold(
         resizeToAvoidBottomPadding: false,
         endDrawer: _configDrawer(context),
-        body: SafeArea(
+        body: Container(
           child: GestureDetector(
             behavior: HitTestBehavior.opaque,
             onTap: () {

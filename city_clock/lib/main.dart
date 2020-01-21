@@ -13,7 +13,7 @@ void main() async {
   // Hide nav/status bars
   SystemChrome.setEnabledSystemUIOverlays(<SystemUiOverlay>[]);
 
-  await GlobalConfiguration().loadFromAsset("assets/cfg/app_settings.json");
+  await GlobalConfiguration().loadFromAsset("app_settings");
 
   // Contains scene/environment assets
   ImageMap images = await loadWeatherImages();
