@@ -1,4 +1,6 @@
 # Lofi-clock
+<img src='city_clock/Lo-Fi_clock.png' width='350'>
+
 This project is an entry for the [flutter clock challenge](https://flutter.dev/clock) hosted by Google for Lenovo Smart clock, 2020.
 Our preferred testing enviornment was an Android emulator. The app works best on a 5:3 screen that has a resolution of 800x480 pixels in landscape mode.
 
