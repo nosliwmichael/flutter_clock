@@ -31,6 +31,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
 
+  global_configuration: ^1.4.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -69,8 +71,39 @@ flutter:
     - assets/images/skies/sky_day.png
     # Load signs
     - assets/images/signs/sign_night.png
+    # Time Digits
+    - assets/digits/hour1-0
+    - assets/digits/hour1-1
+    : assets/digits/hour1-2
+    - assets/digits/hour2-0
+    - assets/digits/hour2-1
+    - assets/digits/hour2-2
+    - assets/digits/hour2-3
+    - assets/digits/hour2-4
+    - assets/digits/hour2-5
+    - assets/digits/hour2-6
+    - assets/digits/hour2-7
+    - assets/digits/hour2-8
+    - assets/digits/hour2-9
+    - assets/digits/minute1-0
+    - assets/digits/minute1-1
+    - assets/digits/minute1-2
+    - assets/digits/minute1-3
+    - assets/digits/minute1-4
+    - assets/digits/minute1-5
+    - assets/digits/minute1-6
+    - assets/digits/minute2-0
+    - assets/digits/minute2-1
+    - assets/digits/minute2-2
+    - assets/digits/minute2-3
+    - assets/digits/minute2-4
+    - assets/digits/minute2-5
+    - assets/digits/minute2-6
+    - assets/digits/minute2-7
+    - assets/digits/minute2-8
+    - assets/digits/minute2-9
 
-  # An image asset can refer to one or more resolution-specific "variants", see
+  # An image asset can refer to one or more resolution-specific variants, see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
   # For details regarding adding assets from package dependencies, see
