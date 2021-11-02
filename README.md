@@ -14,6 +14,4 @@ Code Contributors-
 
 -[Michael Wilson](https://github.com/nosliwmichael),
 
--[Nishant Grover](https://github.com/nishantg95),
-
--[Oscar Serna](https://github.com/oserna1/)
+-[Nishant Grover](https://github.com/nishantg95)
